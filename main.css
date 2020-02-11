@@ -1,0 +1,40 @@
+body {background-color: #DDDDDD;margin:0px;}
+.nesting{display:block;margin-left:0.7em;margin-top:0.5em;margin-bottom:0.5em;margin-right:3px;
+	border:1px dotted #1C6EA4;}
+div.node{border-bottom:1px solid black;margin-bottom:0.5em;}
+span.contentval{font-family: 'SimHei'}
+span.hl{color:red;}
+span.attr {font-size:75%;border-radius: 0.2em;
+	background-color:brown;color:white;
+	margin-left:10px;margin-right:3px;font-family:"SimHei";}
+span.unknown{color:yellow;background-color: red;font-size:150%;}
+span.title{font-family:"SimHei";border-radius: 0.2em;
+	background-color: #3f3f3f;color:#CFCFCF;cursor:ns-resize;}
+span.title:hover{color:white;}
+span.firsttitle{cursor: not-allowed;}
+span.firsttitle:hover{color:red;text-decoration: line-through;}
+span.unknownlink{color:red;text-decoration: line-through;}
+span.nodelink{border-bottom:1px solid #7f7fFF;}
+span.nodelink:hover{cursor: pointer;}
+
+span.backlink{}
+span.backlink:hover{border-bottom:2px solid brown;cursor: pointer;}
+.backlinks{background-color: #BBBBBB}
+span.linksep{border-left:2px solid #777777;margin-right:2px;}
+.backref {background-color: #DFDFAF}
+span.source{background-color:green;color:yellow;}
+
+.nodecontrol{position:absolute;width:100%;}
+.closebutton{font-family:SimHei;font-weight: bold;
+	width:1.1em;height: 1.1em;position:absolute;left:-1em;top:0em;}
+.closebutton:hover {
+border-radius: 50%;background-color: #ff5555;color:white;
+}
+.closebutton:before{content:"Ｘ";}
+
+#logo {font-family: Impact,SimHei ;font-size:125%;
+color:brown;cursor:pointer;}
+#searchpanel{background-color: #ccbbbb}
+input#tofind {font-size:125%;width:5em;}
+#cleartofind{font-family:SimHei;font-weight: bold}
+#cleartofind:hover{color:red;cursor:pointer;}

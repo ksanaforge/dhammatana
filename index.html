@@ -1,0 +1,103 @@
+<html><head>
+<meta charset="UTF-8">
+<link href="main.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body onload=init()>
+<div id="searchpanel">
+	<span id="logo" onclick="api.logoclick()">法游</span>
+	<input id="tofind" oninput="api.tofindchange(this)" ></input>
+	<span id="cleartofind" onclick="api.cleartofind()">Ｘ</span>
+	<span id="searchresult"></span>
+</div>
+<div id="main">Unable to Initialize Application ，無法載入，瀏覽器須支持javascript</div>
+
+<script>
+window.rawdataset=[];//to be load from config.js
+const pagesfromhash=function(){
+	var page=document.location.hash.substr(1)||config.homepage;
+	var pages=page.indexOf("#")>-1?page.split("#"):[page];
+
+	const at=pages.indexOf(config.homepage);
+	if (at>=0 && pages.length>1) {
+		pages.splice(at,1);
+	}
+
+	if (pages[0]=="" &&pages.length==1) pages[0]=config.homepage;	
+	return pages;
+}
+const init=function(){
+	var dataset=builder.build(window.rawdataset,window.config);
+	var pageundo="";
+	var opts=Object.assign({pages:pagesfromhash(),dataset:dataset},window.config);
+	const maindiv=document.getElementById("main");
+	window.onhashchange=function(obj){
+		opts.pages=pagesfromhash();
+
+
+		maindiv.innerHTML=renderer.rendermain(opts);
+	}
+	const logoclick=function(){
+		const pages=pagesfromhash();
+		if (pages.length>3) {
+			pages.length=3;
+			document.location.hash="#"+pages.join("#");
+			return;
+		} else {
+			if (pages.length==0 || pages[0]==config.homepage) {
+				document.location.hash="#"+pageundo;
+			} else {
+				document.location.hash="";
+				pageundo=pages.join("#");
+			}
+		}
+	}
+
+	const showunknown=function(){
+		const ele=document.getElementById("searchresult");
+		ele.innerHTML=renderer.renderunknownlinks(dataset.unknown);
+	}
+	const setStatus=function() {
+		var res="";
+		res+=dataset.wordcount+" words";
+		res+=dataset.unknowncount?"<span onclick=api.showunknown() class=backlink>,"+dataset.unknowncount+" ?</span>":"";
+		res+=" ,ver:"+config.version;
+		document.getElementById("searchresult").innerHTML=res;
+	}	
+	const cleartofind=function(){
+		var ele=document.getElementById("tofind");
+		ele.value="";
+		api.options.tofind="";
+		ele.focus();
+		setStatus();
+	}
+	var tofindtimer=0;
+	const tofindchange=function(obj){
+		clearTimeout(tofindtimer);
+		const ele=document.getElementById("searchresult");
+		tofindtimer=setTimeout(function(){
+			const tf=tofind.value.trim()
+			const tfrx=new RegExp(builder.expandVar(tf),"gi");
+			const sr=builder.search(dataset,tf,tfrx);
+			ele.innerHTML=renderer.rendersearch(sr,tf);
+			api.options.tofind=tf;
+			api.options.tofindregex=tfrx;
+		},300)
+	}
+	setStatus();
+
+	const api=Object.assign({dataset:dataset,logoclick:logoclick,tofindchange:tofindchange,cleartofind:cleartofind,showunknown:showunknown,options:opts},renderer);
+	window.api=api;
+	maindiv.innerHTML=renderer.rendermain(opts);		
+}
+
+</script>
+<script src="config.js"></script>
+<script src="cjkvar.js"></script>
+<script src="build.js"></script>
+<script src="render.js"></script>
+<script src="coreset.js"></script>
+<script src="propername.js"></script>
+<script src="patimokkha-nidana.js"></script>
+<script src="mynote.js"></script>
+</body>

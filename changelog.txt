@@ -1,0 +1,54 @@
+2020.2.10
+	六組緣 608 entries
+	內嵌連結可自訂文字
+	研究patimokkha巴漢文法分析
+	轉換制戒因緣
+	logoclick 只留三筆，少於才清除，再按一次回覆清除。
+2020.2.8
+    發布第一版
+2020.2.7
+	異體字（繁簡）搜尋。以unihanvars 為基礎
+	巴利字母簡化搜尋 panna->pañña
+	464 字，完成心、心所、色法
+	增加色法、心路、口訣
+2020.2.6
+	設置無線分享，手機用http直接連到電腦檔案。uc broswer 要refresh 兩次清buffer
+	設定 require field 並將缺少的欄位存至dataset.invalidentries
+	pack.js 打包成單一html，很方便分享
+	pali 改為 pli 符合國際規範
+	324條
+2020.2.5
+	搜尋及塗紅
+		replace 掃文字，開頭不為#
+		result=[[docid,score][id,score...]]
+		分數= (出現次數/欄位文字長度)*有此字的欄位數
+	
+	test android UC browser ok
+	重覆id 顯示在undefined 之後。以便不會devtool的用戶
+	內嵌連結語法 [#id]
+	245 words, 「心」小分類完成。
+	第一層多於一筆，不顯示homepage
+2020.2.4
+    已在順連者，不列在逆連清單，避免重覆列出
+    config.js 設定資料集及屬性樣版
+    動態載入資料集，用戶不必改index.html
+    加入52心所
+    不允許id重覆時修改
+2020.2.3
+	試jsPDF，不能顯示中文。
+	第一層同時顯示多筆，並存到hash tag
+	|改為#隔開
+	點 標題 移到最頂，已在最頂刪除。
+	搜尋介面：點搜尋結果，在最頂顯示。
+		用replace搜尋並塗紅
+	顯示筆數及未定義
+	展開逆連內容，顯示連結點
+	命名法游 dhammatana dhammaroam
+ 
+2020.2.2
+	巢狀展開、任意收合。
+	簡化json, 先不用array,object
+2020.2.1
+	計劃開始
+	純 HTML+JS+CSS App
+	可產生PDF 並印成書，連結標注頁碼。
