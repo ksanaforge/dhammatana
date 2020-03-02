@@ -1,7 +1,8 @@
 // pack html,css,js into a single html for easy sharing 2020.2.6
 // string to be eval() enclosed with __
-const fs=require('fs');
 
+
+const fs=require('fs'); 
 const indexhtml=fs.readFileSync('index.html','utf8');
 
 var out=indexhtml;
