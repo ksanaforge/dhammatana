@@ -59,6 +59,10 @@ const propername=[
 {id:"akincannayatanabhumi",zh:"無所有處",def:"60000#mahakappa;",en:"realm of nothingness",pli:"ākincaññāyatanabhūmi"},
 {id:"nevasannanasannayatanabhumi",zh:"非想非非想處",def:"84000#mahakappa;",en:"real of neither perception nor non-perception",pli:"ākincaññāyatanabhūmi"},
 
+{id:"sakyan",zh:"釋迦族"},
+{id:"jain",zh:"耆那|離繫派"},
+{id:"nigantha",zh:"尼乾子",pli:"nigaṇṭhā",is:"#jain"}
+
 ]
 	if (typeof module!=="undefined") {
 		module.exports=propername;

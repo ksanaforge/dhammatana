@@ -21,6 +21,7 @@
 			"base":{zh:"依處"},
 			"func":{zh:"功能"},
 			"content":{zh:"文",valuecls:"contentval"},
+			"pre":{zh:"文",valuecls:"pre"},
 			"classification":{zh:"上层类別"},
 			"stem":{zh:"根"},
 			"syn":{zh:"同"},
@@ -35,7 +36,14 @@
 			"nd":{zh:"因緣"},
 			"fact":{zh:"事實"},
 			"nooff":{zh:"無犯"},
-			"editornote":{zh:"編按"}
+			"editornote":{zh:"編按"},
+			"person":{zh:"人"},
+			"deliver":{zh:"主講"},
+			"ordian":{zh:"出家後"},
+			"place":{zh:"地"},
+			"role":{zh:"角色"},
+			"topic":{zh:"題"},
+			"ruby":{zh:"巴"},
 		}
 
 	}

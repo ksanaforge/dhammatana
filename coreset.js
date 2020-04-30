@@ -2,11 +2,11 @@
 const coreset=[
 
 {id:"homepage",
-	attr:"#buddha#dhamma#sangha#patimokkha#mnemonic#editing"
+	attr:"#tipitaka#buddha#dhamma#sangha#patimokkha#mnemonic#dn#mn"
 	,zh:"首頁",en:"homepage",pli:"-"
 },
 {id:"patimokkha",zh:"巴帝摩卡",pli:"paṭimokkha"},
-{id:"editing",zh:"編輯中",en:"editing",content:"buffer problem!!!#kamavacaracitta;aaa",en:"-",pli:"-"},
+{id:"editing",zh:"編輯中",en:"editing",content:"#mn",en:"-",pli:"-"},
 {id:"buddha",zh:"佛",en:"Buddha",pli:"buddha"},
 {id:"dhamma",
 	en:"dhamma",
@@ -72,7 +72,8 @@ const coreset=[
 {id:"magga",zh:"道",en:"path",pli:"magga"},
 {id:"phala",zh:"果",en:"fruition",pli:"phala"},
 {id:"anicca",zh:"無常",en:"impermanence",pli:"anicca"},
-{id:"anatta",zh:"無我",en:"non-self",pli:"anatta"},
+{id:"atta",zh:"有我",en:"self",pli:"atta"},
+{id:"anatta",zh:"無我",anto:"#atta",en:"non-self",pli:"anatta"},
 {id:"dukkhasacca",stem:"#dukkha",zh:"苦諦",en:"the truth of suffering",pli:"dukkhasacca"},
 {id:"samudayasacca",stem:"#samudaya",zh:"集諦",en:"the truth of origination",pli:"samudayasacca"},
 {id:"nirodhasacca",stem:"#nirodha",zh:"滅諦",en:"the truth of cessation",pli:"nirodhasacca"},

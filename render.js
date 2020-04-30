@@ -123,7 +123,17 @@ const rendertextwithlink=function(str,dict,opts){
 		})
 	}
 }
-
+const rubyregex=/(\S+)\((\S+)\)/g
+const renderruby=function(dict,id,str,opts){
+	let out="",o=0,offset=0;
+	str.replace(rubyregex,(m,m1,m2,o)=>{
+		out+=str.substring(offset,o);
+		out+="<ruby><rb>"+m1+'</rb><rt>'+m2+"</rt></ruby>";
+		offset=o+m.length;
+	});
+	out+=str.substr(offset);
+	return out.replace(/\n/g,"<br/>");
+}
 const renderstring=function(dict,id,str,opts){
 	var res="";
 	if (str.substr(0,1)=="#") {
@@ -159,7 +169,12 @@ const defhandler=function(dict,id,att,opts){
 		}
 		res+=attrname?"<span class="+(attr.cls||"attr")+">"+attrname+"</span>"
 		             :"<span>";
-		res+=renderstring(dict,id,dict[id][att],options);
+
+		if (att=="ruby") {
+			res+=renderruby(dict,id,dict[id][att],options);
+		} else {
+			res+=renderstring(dict,id,dict[id][att],options);
+		}
 		res+="</span>";
 	} else if (type=="object") {
 		res+=attrname?"<span class="+(attr.cls||"attr")+">"+attrname+"</span>"
